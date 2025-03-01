@@ -26,6 +26,7 @@ jobs:
 
           # Options
           template: classic
+          user: ShotaHayashi0601
           base: ''
           config_timezone: Asia/Tokyo
           plugin_habits: yes
