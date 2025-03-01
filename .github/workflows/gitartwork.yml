@@ -44,5 +44,6 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add gitartwork.svg metrics.svg
           git commit -m "[ci skip] Update gitartwork & Metrics" || echo "No changes to commit"
-          # PAT を使って明示的にプッシュする
-          git push https://ShotaHayashi0601:${{ secrets.METRICS_TOKEN}}@github.com/ShotaHayashi0601/ShotaHayashi0601.git
+
+          # 競合を無視して強制プッシュ
+          git push --force https://ShotaHayashi0601:${{ secrets.METRICS_TOKEN }}@github.com/ShotaHayashi0601/ShotaHayashi0601.git
