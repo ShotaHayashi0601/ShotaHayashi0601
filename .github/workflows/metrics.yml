@@ -1,9 +1,8 @@
-# https://metrics.lecoq.io/
-# Visit https://github.com/lowlighter/metrics/blob/master/action.yml for full reference
+# Visit https://github.com/lowlighter/metrics#-documentation for full reference
 name: Metrics
 on:
-  # Schedule updates (Runs at 09:00 JST every day)
-  schedule: [{ cron: '0 0 * * *' }]
+  # Schedule updates (each hour)
+  schedule: [{ cron: '0 * * * *' }]
   # Lines below let you run workflow manually and on each commit
   workflow_dispatch:
   push: { branches: ['master', 'main'] }
@@ -26,35 +25,24 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
 
           # Options
-          #user: ShotaHayashi0601
           template: classic
-          base: header, activity, repositories, metadata
-          config_display: large
-          config_padding: 0, 10 + 8%
+          base: ''
           config_timezone: Asia/Tokyo
-          #   plugin_achievements: yes
-          #   plugin_achievements_display: detailed
-          #   plugin_achievements_secrets: yes
-          #   plugin_achievements_threshold: B
-          # 🔹 GitHub の活動を表示（コミット・プルリク・スターなど）
-          plugin_activity: yes
-          plugin_activity_limit: 7
-          plugin_activity_days: 30
-
+          plugin_habits: yes
+          plugin_habits_charts_type: classic
+          plugin_habits_days: 14
+          plugin_habits_facts: yes
+          plugin_habits_from: 200
+          plugin_habits_languages_limit: 8
+          plugin_habits_languages_threshold: 0%
           plugin_languages: yes
-          plugin_languages_indepth: yes
-          plugin_languages_analysis_timeout: 30
+          plugin_languages_analysis_timeout: 15
+          plugin_languages_analysis_timeout_repositories: 7.5
           plugin_languages_categories: markup, programming
-          plugin_languages_recent_days: 30
-          plugin_languages_recent_load: 500
-          plugin_languages_sections: most-used, recently-used
+          plugin_languages_colors: github
+          plugin_languages_limit: 8
+          plugin_languages_recent_categories: markup, programming
+          plugin_languages_recent_days: 14
+          plugin_languages_recent_load: 300
+          plugin_languages_sections: most-used
           plugin_languages_threshold: 0%
-          # 🔹 フレームワーク・技術スタックの可視化
-          plugin_stars: yes
-          plugin_stars_limit: 5
-          plugin_repositories: yes
-          plugin_repositories_limit: 5
-        #   plugin_topics: yes
-        #plugin_topics_limit: 15
-        #plugin_topics_mode: icons
-        #plugin_topics_sort: stars
