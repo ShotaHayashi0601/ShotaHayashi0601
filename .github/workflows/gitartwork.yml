@@ -25,4 +25,4 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add gitartwork.svg
           git commit -m "[ci skip] Update gitartwork" || echo "No changes to commit"
-          git push https://ShotaHayashi0601:${{ secrets.METRICS__TOKEN }}@github.com/ShotaHayashi0601/ShotaHayashi0601.git
+          git push https://ShotaHayashi0601:${{ secrets.METRICS_TOKEN }}@github.com/ShotaHayashi0601/ShotaHayashi0601.git
