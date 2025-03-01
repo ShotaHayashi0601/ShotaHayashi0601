@@ -23,7 +23,7 @@ jobs:
       - name: Generate GitHub Metrics
         uses: lowlighter/metrics@latest
         with:
-          token: ${{ secrets.MY_GITHUB_TOKEN }} # repo スコープ必須
+          token: ${{ secrets.METRICS_TOKEN }} # repo スコープ必須
 
           filename: metrics.svg
           #base: 'repositories'
@@ -44,4 +44,4 @@ jobs:
           git add gitartwork.svg metrics.svg
           git commit -m "[ci skip] Update gitartwork & Metrics" || echo "No changes to commit"
           # PAT を使って明示的にプッシュする
-          git push https://ShotaHayashi0601:${{ secrets.MY_GITHUB_TOKEN }}@github.com/ShotaHayashi0601/ShotaHayashi0601.git
+          git push https://ShotaHayashi0601:${{ secrets.METRICS_TOKEN}}@github.com/ShotaHayashi0601/ShotaHayashi0601.git
